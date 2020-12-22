@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      /*属性选择器*/
+      [v-cloak]{
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!--这边就相当于MVVM中的View-->
+    <!--{{}}是vue中的插值表达式: 必须是一句话，必须有返回值-->
+    <div id="app">
+      <div v-cloak>
+        {{msg}} {{number+1}}
+        <!-- 
+            数据源一变  页面就会变
+            {{number++}} -> {{number = number+1}} 
+        -->
+        {{ok?"YES":"NO"}} {{msg.split("").reverse().join("-")}}
+      </div>
+
+      <button @click="modify">点我修改msg</button>
+
+      <!--凡是v-开头的，都是vue指令，凡是指令，他的值都要是一个变量或者常量-->
+      <!--v-text设定标签的文本内容，会替换标签原来的内容。v-text后面需要是一个变量或者常量-->
+      <p v-text="html1">99999</p>
+      <p v-text="'abc'"></p>
+      <p title="abc"></p>
+
+      <!--v-html设定标签的网页内容，会替换标签原来的内容。v-text后面需要是一个变量或者常量-->
+      <p v-html="html1">88888</p>
+
+      <!--v-bind主要用来给元素绑定的属性的,默认情况下v-bind可以省略-->
+      <p v-bind:title="title">测试p</p>
+      <p :title="title+'123'">测试p</p>
+      <p title="title">xxx</p>
+
+      <!--v-on:用来绑定事件，他的值需要是method中的方法
+          该方法可以加括号也可以不加括号，区别在于加括号之后，可以传参。如果要入参事件对象，直接用$event
+          默认情况下，v-on可以省略，用@符号来替换
+        -->
+      <button v-on:click="clickMe($event,'xx')">点我</button>
+      <button @click="clickMe($event,'xx')">点我</button>
+
+      <!--
+        v-cloak可以解决插值表达式的闪烁问题：
+      -->
+    </div>
+  </body>
+</html>

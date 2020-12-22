@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+  
+    <input type="text" v-model="id">
+    <input type="text" v-model="name">
+    <input type="button" value="添加" @click="save">
+
+    <hr>  
+    <ul>
+      <!--key的作用：跟踪每个节点的身份，从而重用和重新排序现有元素，提高渲染效率-->
+      <!--key的值应该是同一层级唯一的，每一条数据都应该有一个唯一的key，而且key的值只能输数字或者字符串-->
+      <li v-for="item in list" :key="item.id">
+        <input type="checkbox">
+        {{item.id}} --->{{item.name}}
+      </li>
+    </ul>
+  </div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <!--v-if和v-show是用来控制元素隐藏和显示的
+    v-if和v-show的区别：v-if是通过删除和新增元素来隐藏和显示的元素的
+                       v-show是切换元素的display属性来实现
+    如果要频繁切换元素，用v-show好。
+    v-if有较高的切换消耗，v-show有较高的渲染消耗
+    -->
+    <span v-if="flag">span1</span>
+    <span v-show="flag">span2</span>
+    <button @click="flag=!flag">点我取反flag</button>
+  </div>
+</body>
+</html>

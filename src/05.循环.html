@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!--
+      v-for 就代表循环
+
+      v-for="(item,idx) in list"  item就是数组中的每一个元素,idx就是数组元素的下标
+      v-for="(val, key) in user"  val是对象的属性值，key是对象的属性名
+    -->
+    <div id="app">
+      <ul>
+        <li v-for="(item,idx) in list">
+          {{item.id}}-->{{item.name}} -->{{idx}}
+        </li>
+      </ul>
+      <hr />
+
+      <span v-for="(val, key) in user"> {{val}} -->{{key}} </span>
+      <hr />
+
+      <p v-for="count in 10">这是第 {{ count }} 次循环</p>
+    </div>
+  </body>
+</html>

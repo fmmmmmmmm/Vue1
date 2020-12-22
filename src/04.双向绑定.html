@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+    <!--双向绑定：v-model 一般情况下只能用在表单元素中
+    1.数据变了，页面同步改变      vue2.x是 借助数据劫持(Object.defindProperty)+发布订阅模式来实现的
+    2.页面变了，数据会同步改变    是通过事件绑定来完成
+
+    注意点：只有v-model指令是双向绑定的，其他指令都不是双向的
+    -->
+    <div id="app">
+      <input type="text" v-model="name">
+      <button @click="modify">点我修改name</button>
+    </div>
+</body>
+</html>

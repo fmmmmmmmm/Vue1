@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      .parent {
+        width: 300px;
+        height: 300px;
+        background-color: red;
+      }
+
+      .inner {
+        width: 100px;
+        height: 100px;
+        background-color: yellow;
+      }
+
+      .box {
+        width: 50px;
+        height: 50px;
+        background-color: pink;
+      }
+    </style>
+  </head>
+  <body>
+    <!--
+    事件的传递有三个阶段：事件捕获阶段、事件目标阶段、事件冒泡阶段
+
+    事件修饰符:
+    stop : 阻止事件冒泡
+    capture: 事件捕获阶段，默认是冒泡阶段
+    prevent: 阻止默认事件
+    self：只有触发在自己身上的事件才会执行，子元素冒泡上来的事件不会执行
+    once：只触发一次的事件
+  -->
+    <div id="app">
+      <div class="parent" @click="clickParent">
+        <div class="inner" @click.stop="clickInner"></div>
+      </div>
+
+      <div class="parent" @click.capture="clickParent">
+        <div class="inner" @click.capture="clickInner"></div>
+      </div>
+
+      <a href="http://baidu.com" @click.prevent="aClick">点我</a>
+
+      <div class="parent" @click="clickParent">
+        <div class="inner" @click.self="clickInner">
+          <div class="box" @click="clickBox"></div>
+        </div>
+      </div>
+
+      <button @click.once="buttonClick">按钮</button>
+    </div>
+  </body>
+</html>
